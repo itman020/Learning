@@ -1,0 +1,22 @@
+1. creat docker file<Dockerfile>
+
+FROM openjdk:8-jdk-alpine
+
+COPY springcloud-discovery-server-0.0.1-SNAPSHOT.jar springcloud-discovery-server-0.0.1-SNAPSHOT.jar
+
+ENTRYPOINT  ["java","-jar","springcloud-discovery-server-0.0.1-SNAPSHOT.jar"]
+
+2. check image
+docker images
+
+3. pull open jdk
+C:\1227\dockerbuilder\dissrv>docker pull openjdk:8-jdk-alpine
+
+4. build image
+C:\1227\dockerbuilder\dissrv>docker build -t "dissrv:1.0" .
+
+5. check image
+C:\1227\dockerbuilder\dissrv>docker images
+
+6. start container
+docker run -d --name dissrv01 -p 8761:80 dissrv:1.0
